@@ -88,6 +88,8 @@ var upperCasedCharacters = [
   "Z",
 ];
 
+var passwordArray = specialCharacters.concat(upperCasedCharacters).concat(lowerCasedCharacters).concat(numericCharacters);
+
 // Function to prompt user for password options
 function getPasswordOptions() {
   // var button = document.getElementById("generate");
@@ -98,25 +100,40 @@ function getPasswordOptions() {
 
 
 
-  window.addEventListener("load", () => {
+  document.addEventListener("load", () => {
     for (var i = 0; i < prompts.length; i++) {
-      alert(prompts[i]);
+      var firstPrompt  = prompt(prompts[0]);
+var secondPrompt = prompt(prompts[1]);
     }
+//  var password  = prompt("Enter your password");
+console.log(firstPrompt, secondPrompt);
   });
+
 }
+
+
 
 getPasswordOptions()
 
 // Function for getting a random element from an array
 function getRandom(arr) {
-
+var randomChar = Math.floor(Math.random(8, 129) * arr.length );
+return arr[randomChar]
 
 }
 
+// console.log(getRandom(passwordArray));
+console.log(getRandom(lowerCasedCharacters));
+console.log(getRandom(upperCasedCharacters));
+console.log(getRandom(specialCharacters));
+console.log(getRandom(numericCharacters));
 
 
 // Function to generate password with user input
-function generatePassword() {}
+function generatePassword() {
+
+}
+
 
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
