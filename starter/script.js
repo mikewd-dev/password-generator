@@ -88,13 +88,9 @@ var upperCasedCharacters = [
   "Z",
 ];
 
-var passwordArray = specialCharacters
-  .concat(upperCasedCharacters)
-  .concat(lowerCasedCharacters)
-  .concat(numericCharacters);
+//create an empty array
+var joinedArray = [];
 
-// var firstPrompt;
-// var secondPrompt;
 
 // Function to prompt user for password options
 function getPasswordOptions() {
@@ -105,6 +101,7 @@ function getPasswordOptions() {
 
 //present to user different options
     var firstPrompt = prompt("How many characters in the password");
+firstPrompt = parseInt(firstPrompt);
     var secondPrompt = confirm(
       "Do you want upper-case characters in the password?"
     );
@@ -125,38 +122,35 @@ function getPasswordOptions() {
       );
     } else {
       firstPrompt;
+
     }
     console.log(firstPrompt);
 
-    if ((secondPrompt.confirm = true)) {
-      secondPrompt;
+    //check users response and add to the joined array
+    if (secondPrompt) {
+      joinedArray.concat(upperCasedCharacters)
     } else {
       !secondPrompt;
     }
 
-    console.log(secondPrompt);
+    console.log(joinedArray);
 
-    if ((thirdPrompt.confirm = true)) {
-      thirdPrompt;
-    } else {
-      !thirdPrompt;
+    if (thirdPrompt) {
+      joinedArray.concat(lowerCasedCharacters)
     }
-    console.log(thirdPrompt);
-    if ((fourthPrompt.confirm = true)) {
-      fourthPrompt;
-    } else {
-      !fourthPrompt;
+    console.log(joinedArray);
+
+    if (fourthPrompt) {
+      joinedArray.concat(numericCharacters)
     }
 
-    console.log(fourthPrompt);
+    console.log(joinedArray);
 
-    if ((fifthPrompt.confirm = true)) {
-      fifthPrompt;
-    } else {
-      !fifthPrompt;
+    if (fifthPrompt) {
+      joinedArray.concat(specialCharacters)
     }
 
-    console.log(fourthPrompt);
+    console.log(joinedArray);
   });
 }
 
@@ -166,6 +160,8 @@ getPasswordOptions();
 function getRandom(arr) {
 
 }
+
+
 
 
 // Function to generate password with user input
