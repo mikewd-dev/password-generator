@@ -88,52 +88,88 @@ var upperCasedCharacters = [
   "Z",
 ];
 
-var passwordArray = specialCharacters.concat(upperCasedCharacters).concat(lowerCasedCharacters).concat(numericCharacters);
+var passwordArray = specialCharacters
+  .concat(upperCasedCharacters)
+  .concat(lowerCasedCharacters)
+  .concat(numericCharacters);
+
+// var firstPrompt;
+// var secondPrompt;
 
 // Function to prompt user for password options
 function getPasswordOptions() {
-  // var button = document.getElementById("generate");
-  var prompts = [
-    "password must be at least 8 characters but no more than 128",
-    "Characters can be uppercase, lowercase, numeric or special characters",
-  ];
+  var button = document.getElementById("generate");
 
+//check if user clicks generate button
+  button.addEventListener("click", () => {
 
+//present to user different options
+    var firstPrompt = prompt("How many characters in the password");
+    var secondPrompt = confirm(
+      "Do you want upper-case characters in the password?"
+    );
+    var thirdPrompt = confirm(
+      "Do you want lower-case characters in the password?"
+    );
+    var fourthPrompt = confirm(
+      "Do you want to include numbers in the password?"
+    );
+    var fifthPrompt = confirm(
+      "Do you want special characters in the password?"
+    );
 
-  document.addEventListener("load", () => {
-    for (var i = 0; i < prompts.length; i++) {
-      var firstPrompt  = prompt(prompts[0]);
-var secondPrompt = prompt(prompts[1]);
+    //validate the users entry and check their responses
+    if (firstPrompt < 8 || firstPrompt > 128) {
+      alert(
+        "The password must be at least 8 characters and no more than 128 characters"
+      );
+    } else {
+      firstPrompt;
     }
-//  var password  = prompt("Enter your password");
-console.log(firstPrompt, secondPrompt);
-  });
+    console.log(firstPrompt);
 
+    if ((secondPrompt.confirm = true)) {
+      secondPrompt;
+    } else {
+      !secondPrompt;
+    }
+
+    console.log(secondPrompt);
+
+    if ((thirdPrompt.confirm = true)) {
+      thirdPrompt;
+    } else {
+      !thirdPrompt;
+    }
+    console.log(thirdPrompt);
+    if ((fourthPrompt.confirm = true)) {
+      fourthPrompt;
+    } else {
+      !fourthPrompt;
+    }
+
+    console.log(fourthPrompt);
+
+    if ((fifthPrompt.confirm = true)) {
+      fifthPrompt;
+    } else {
+      !fifthPrompt;
+    }
+
+    console.log(fourthPrompt);
+  });
 }
 
-
-
-getPasswordOptions()
+getPasswordOptions();
 
 // Function for getting a random element from an array
 function getRandom(arr) {
-var randomChar = Math.floor(Math.random(8, 129) * arr.length );
-return arr[randomChar]
 
 }
-
-// console.log(getRandom(passwordArray));
-console.log(getRandom(lowerCasedCharacters));
-console.log(getRandom(upperCasedCharacters));
-console.log(getRandom(specialCharacters));
-console.log(getRandom(numericCharacters));
 
 
 // Function to generate password with user input
-function generatePassword() {
-
-}
-
+function generatePassword() {}
 
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
