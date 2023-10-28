@@ -88,7 +88,7 @@ var upperCasedCharacters = [
   "Z",
 ];
 
-//create an empty array
+// //create an empty array
 var joinedArray = [];
 
 
@@ -100,6 +100,7 @@ function getPasswordOptions() {
   button.addEventListener("click", () => {
 
 //present to user different options
+    joinedArray = [];
     var firstPrompt = prompt("How many characters in the password");
 firstPrompt = parseInt(firstPrompt);
     var secondPrompt = confirm(
@@ -118,54 +119,57 @@ firstPrompt = parseInt(firstPrompt);
     //validate the users entry and check their responses
     if (firstPrompt < 8 || firstPrompt > 128) {
       alert(
-        "The password must be at least 8 characters and no more than 128 characters"
-      );
-    } else {
-      firstPrompt;
-
+        "The password must be at least 8 characters and no more than 128 characters")
+        return;
     }
     console.log(firstPrompt);
 
     //check users response and add to the joined array
     if (secondPrompt) {
-      joinedArray.concat(upperCasedCharacters)
-    } else {
-      !secondPrompt;
+      joinedArray = joinedArray.concat(upperCasedCharacters)
     }
 
-    console.log(joinedArray);
+
 
     if (thirdPrompt) {
-      joinedArray.concat(lowerCasedCharacters)
+      joinedArray = joinedArray.concat(lowerCasedCharacters)
     }
-    console.log(joinedArray);
+
 
     if (fourthPrompt) {
-      joinedArray.concat(numericCharacters)
+      joinedArray = joinedArray.concat(numericCharacters)
     }
 
-    console.log(joinedArray);
 
     if (fifthPrompt) {
-      joinedArray.concat(specialCharacters)
+      joinedArray = joinedArray.concat(specialCharacters)
     }
 
-    console.log(joinedArray);
+
+    var randomlyGeneratedPassword = getRandom(joinedArray, firstPrompt)
   });
 }
 
 getPasswordOptions();
 
 // Function for getting a random element from an array
-function getRandom(arr) {
+function getRandom(arr, size) {
 
+// starting with an empty result loop through the array and add a new random character to the result
+var result= '';
+  for (var i = 0; i < size; i++) {
+    var randomChar = Math.floor(Math.random() * arr.length);
+      // return arr[randomChar];
+result += arr[randomChar];
+    }
+    console.log(result);
 }
 
 
-
-
 // Function to generate password with user input
-function generatePassword() {}
+function generatePassword() {
+
+}
 
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
