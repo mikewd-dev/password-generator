@@ -125,12 +125,21 @@ function getPasswordOptions() {
       return;
     }
 
+    // check if user input a number
+    if (Number(!firstPrompt)) {
+        alert("Please numerical characters")
+        return;
+    }
+
+
+
     //prompt user for other required characters
     var secondPrompt = confirm("Do you want upper-case characters in the password?");
     var thirdPrompt = confirm("Do you want lower-case characters in the password?");
     var fourthPrompt = confirm("Do you want to include numbers in the password?");
     var fifthPrompt = confirm("Do you want special characters in the password?");
 
+    //as each prompt is presented add to array if user clicks ok button
     if (secondPrompt) {
       joinedArray = joinedArray.concat(upperCasedCharacters);
     }
@@ -151,7 +160,7 @@ function getPasswordOptions() {
     generatePassword(randomlyGeneratedPassword);
     writePassword(randomlyGeneratedPassword);
   });
-    console.log(randomlyGeneratedPassword);
+    // console.log(randomlyGeneratedPassword);
 }
 
 
@@ -160,7 +169,7 @@ function getPasswordOptions() {
 
   // Function to generate password with user input
   function generatePassword(result) {
-      console.log(result);
+      // console.log(result);
       return result;
   }
 
@@ -175,11 +184,9 @@ function writePassword() {
   var password = generatePassword(randomlyGeneratedPassword);
   var passwordText = document.querySelector("#password");
 
-
   if(randomlyGeneratedPassword) {
   passwordText.value = password;
 }
-console.log(passwordText.value);
 }
 
 // Add event listener to generate button
