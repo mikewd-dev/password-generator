@@ -88,27 +88,21 @@ var upperCasedCharacters = [
   "Z",
 ];
 
-
-
 // create emppty array to store characters based on user responses to prompts
 var joinedArray = [];
 
-var randomlyGeneratedPassword ='';
+var randomlyGeneratedPassword = "";
 
 // Function for getting a random element from an array
 function getRandom(arr, size) {
-
   // starting with an empty result loop through the array and add a new random character to the result
-  var result= '';
-    for (var i = 0; i < size; i++) {
-      var randomChar = Math.floor(Math.random() * arr.length);
-  result += arr[randomChar];
-
-      }
-      return result;
-    }
-
-
+  var result = "";
+  for (var i = 0; i < size; i++) {
+    var randomChar = Math.floor(Math.random() * arr.length);
+    result += arr[randomChar];
+  }
+  return result;
+}
 
 // Function to prompt user for password options
 function getPasswordOptions() {
@@ -121,23 +115,31 @@ function getPasswordOptions() {
 
     //check if critera for length of password met?
     if (firstPrompt < 8 || firstPrompt > 128) {
-      alert("The password must be at least 8 characters and no more than 128 characters");
+      alert(
+        "The password must be at least 8 characters and no more than 128 characters"
+      );
       return;
     }
 
     // check if user input a number
     if (Number(!firstPrompt)) {
-        alert("Please numerical characters")
-        return;
+      alert("Please numerical characters");
+      return;
     }
 
-
-
     //prompt user for other required characters
-    var secondPrompt = confirm("Do you want upper-case characters in the password?");
-    var thirdPrompt = confirm("Do you want lower-case characters in the password?");
-    var fourthPrompt = confirm("Do you want to include numbers in the password?");
-    var fifthPrompt = confirm("Do you want special characters in the password?");
+    var secondPrompt = confirm(
+      "Do you want upper-case characters in the password?"
+    );
+    var thirdPrompt = confirm(
+      "Do you want lower-case characters in the password?"
+    );
+    var fourthPrompt = confirm(
+      "Do you want to include numbers in the password?"
+    );
+    var fifthPrompt = confirm(
+      "Do you want special characters in the password?"
+    );
 
     //as each prompt is presented add to array if user clicks ok button
     if (secondPrompt) {
@@ -160,21 +162,16 @@ function getPasswordOptions() {
     generatePassword(randomlyGeneratedPassword);
     writePassword(randomlyGeneratedPassword);
   });
-    // console.log(randomlyGeneratedPassword);
+  // console.log(randomlyGeneratedPassword);
 }
 
+// Function to generate password with user input
+function generatePassword(result) {
+  // console.log(result);
+  return result;
+}
 
-
-
-
-  // Function to generate password with user input
-  function generatePassword(result) {
-      // console.log(result);
-      return result;
-  }
-
-  getPasswordOptions();
-
+getPasswordOptions();
 
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
@@ -184,9 +181,9 @@ function writePassword() {
   var password = generatePassword(randomlyGeneratedPassword);
   var passwordText = document.querySelector("#password");
 
-  if(randomlyGeneratedPassword) {
-  passwordText.value = password;
-}
+  if (randomlyGeneratedPassword) {
+    passwordText.value = password;
+  }
 }
 
 // Add event listener to generate button
